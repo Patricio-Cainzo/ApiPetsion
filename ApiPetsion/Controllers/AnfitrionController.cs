@@ -132,22 +132,5 @@ namespace ApiPetsion.Controllers
             return Ok(responseDto);
         }
 
-        [HttpPost("buscar")]
-        public IActionResult BuscarAnfitriones([FromBody] BusquedaAnfitrionDTO busquedaDTO)
-        {
-            if (busquedaDTO == null)
-            {
-                return BadRequest("Los datos de búsqueda no pueden estar vacíos");
-            }
-
-            var anfitriones = _repository.BuscarAnfitriones(busquedaDTO);
-
-            if (anfitriones == null || !anfitriones.Any())
-            {
-                return NotFound("No se encontraron anfitriones que cumplan con los criterios de búsqueda");
-            }
-
-            return Ok(anfitriones);
-        }
     }
 }

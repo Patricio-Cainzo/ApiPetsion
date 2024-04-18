@@ -62,71 +62,7 @@ namespace ApiPetsion.Models.Repositorio
             _context.Anfitriones.Remove(anfitrion);
             _context.SaveChanges();
         }
-        public IEnumerable<Anfitrion> BuscarAnfitriones(BusquedaAnfitrionDTO busquedaAnfitrion)
-        {
-            // Construye la consulta inicial
-            var query = _context.Anfitriones.AsQueryable();
-
-            // Aplica filtros según los atributos proporcionados en el DTO de búsqueda
-            if (!string.IsNullOrEmpty(busquedaAnfitrion.TipoVivienda))
-                query = query.Where(a => a.TipoVivienda == busquedaAnfitrion.TipoVivienda);
-
-            if (busquedaAnfitrion.Patio)
-                query = query.Where(a => a.Patio == true);
-
-            if (busquedaAnfitrion.AdmiteGato)
-                query = query.Where(a => a.AdmiteGato == true);
-
-            if (busquedaAnfitrion.AdmitePerroGrande)
-                query = query.Where(a => a.AdmitePerroGrande == true);
-
-            if (busquedaAnfitrion.AdmitePerroMediano)
-                query = query.Where(a => a.AdmitePerroMediano == true);
-
-            if (busquedaAnfitrion.AdmitePerroPequeno)
-                query = query.Where(a => a.AdmitePerroPequeno == true);
-
-            if (busquedaAnfitrion.PaseoMascota)
-                query = query.Where(a => a.PaseoMascota == true);
-
-            if (busquedaAnfitrion.OfreceAlojamiento)
-                query = query.Where(a => a.OfreceAlojamiento == true);
-
-            if (busquedaAnfitrion.GuarderiaDiurna)
-                query = query.Where(a => a.GuarderiaDiurna == true);
-
-            if (busquedaAnfitrion.DisponibleLunes)
-                query = query.Where(a => a.DisponibleLunes == true);
-
-            if (busquedaAnfitrion.DisponibleMartes)
-                query = query.Where(a => a.DisponibleMartes == true);
-
-            if (busquedaAnfitrion.DisponibleMiercoles)
-                query = query.Where(a => a.DisponibleMiercoles == true);
-
-            if (busquedaAnfitrion.DisponibleJueves)
-                query = query.Where(a => a.DisponibleJueves == true);
-
-            if (busquedaAnfitrion.DisponibleViernes)
-                query = query.Where(a => a.DisponibleViernes == true);
-
-            if (busquedaAnfitrion.DisponibleSabado)
-                query = query.Where(a => a.DisponibleSabado == true);
-
-            if (busquedaAnfitrion.DisponibleDomingo)
-                query = query.Where(a => a.DisponibleDomingo == true);
-
-            // Agrega la condición para la cantidad de mascotas
-            if (busquedaAnfitrion.CantidadMascotaAdmite > 0)
-                query = query.Where(a => a.CantidadmascotaAdmite >= busquedaAnfitrion.CantidadMascotaAdmite);
-
-            // Continúa con los demás filtros...
-
-            // Ejecuta la consulta y devuelve los resultados
-            var anfitriones = query.ToList();
-
-            return anfitriones;
-        }
+        
 
     }
 }

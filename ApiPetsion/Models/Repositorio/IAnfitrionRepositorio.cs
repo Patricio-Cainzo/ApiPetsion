@@ -9,7 +9,7 @@ namespace ApiPetsion.Models.Repositorio
         void Agregar(Anfitrion anfitrion);
         void Actualizar(Anfitrion anfitrion);
         void Eliminar(int id);
-        IEnumerable<Anfitrion> BuscarAnfitriones(BusquedaAnfitrionDTO busquedaAnfitrion);
+
 
     }
 }
